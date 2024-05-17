@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JSX and Babel</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      // Your JSX code here
+
+      const rootElement = document.getElementById("root");
+
+      function Counter(props) {
+        return (
+          <div>
+            <h1>count:{props.count}</h1>
+            <button onClick={props.increase}>increaseCount</button>
+          </div>
+        );
+      }
+
+      function App() {
+        const [count, setCount] = React.useState(1);
+
+        function increase() {
+          setCount(count + 1);
+        }
+        return (
+          <div>
+            <Counter count={count} increase={increase}/>
+            <hr />
+            <Counter count={count} increase={increase}/>
+            <hr />
+            <Counter count={count} increase={increase}/>
+          </div>
+        );
+      }
+
+      const reactRoot = ReactDOM.createRoot(rootElement);
+      reactRoot.render(<App />);
+    </script>
+  </body>
+</html>

@@ -17,14 +17,25 @@
       function App() {
         const [count , setcount] = React.useState(90);
 
+        const [ginti, setGinti] = React.useState(1)
+
         function IncreaseButton() {
           return setcount(count + 8);
         }
 
+
+        function IncreaseGinti(){
+            return setGinti(ginti+1)
+        }
+
         return (
           <div>
+            <h1>Increase by 8:</h1>
             <h1>Count: {count}</h1>
             <button onClick={IncreaseButton}>IncreaseCount</button>
+            <hr/>
+            <h1>Ginti: {ginti}</h1>
+            <button onClick={IncreaseGinti}>IncreaseGinti</button>
           </div>
         );
       }
