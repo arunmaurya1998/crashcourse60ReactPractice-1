@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://www.unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+    <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+    <script type="text/babel">
+      // Define the Article component
+      const Article = ({ title, content }) => {
+        return (
+          <div style={articleStyle}>
+            <h2>{title}</h2>
+            <p>{content}</p>
+          </div>
+        );
+      };
+
+      // Define the ArticleList component
+      function ArticleList(){
+        const articles = [
+          { title: 'Article 1', content: 'This is the content of article 1.' },
+          { title: 'Article 2', content: 'This is the content of article 2.' },
+          { title: 'Article 3', content: 'This is the content of article 3.' },
+        ];
+
+        return (
+          <div>
+            {articles.map((article, index) => (
+              <Article key={index} title={article.title} content={article.content} />
+            ))}
+          </div>
+        );
+      };
+
+      // Define the App component
+      const App = () => {
+        return (
+          <div>
+            <h1>Article List</h1>
+            <ArticleList />
+          </div>
+        );
+      };
+
+      // Styles
+      const articleStyle = {
+        border: '1px solid #ccc',
+        padding: '10px',
+        margin: '10px 0',
+      };
+
+      // Render the App component
+      const reactRoot = ReactDOM.createRoot(document.getElementById("root"));
+      reactRoot.render(<App />);
+    </script>
+  </body>
+</html>

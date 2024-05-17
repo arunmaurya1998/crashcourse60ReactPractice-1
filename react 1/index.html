@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=
+    , initial-scale=1.0"
+    />
+    <title>react</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    let rootElement = document.getElementById("root");
+    // 1st way of writing code
+
+    // let header = React.createElement("h1", {id:"header"}, "hii everyone to all")
+    //   we can write rect code this way and another way lin no 19
+
+    // 2nd way of writing code
+
+    // let header1 = React.createElement("h1",{
+    //     id: "header1",
+    //     children: "Many miles I have to go before I am asleep..."
+    // })
+
+    let header = (
+      <div>
+        <h1>Frouits</h1>
+        <ol>
+          <li>apple</li>
+          <li>Banana</li>
+          <li>Orange</li>
+          <li>Mango</li>
+        </ol>
+
+        <img
+          src="https://www.shutterstock.com/image-photo/red-apple-isolated-on-white-600nw-1727544364.jpg"
+          alt="apple image"
+        />
+       
+      </div>
+    );
+
+    ReactDOM.createRoot(rootElement).render(header);
+  </script>
+</html>
