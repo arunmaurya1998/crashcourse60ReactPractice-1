@@ -15,15 +15,15 @@
       const reacrRoot = ReactDOM.createRoot(rootElemnt);
 
       function App() {
-        const [value, newValue] = React.useState(90);
+        const [count , setcount] = React.useState(90);
 
         function IncreaseButton() {
-          return newValue(value + 8);
+          return setcount(count + 8);
         }
 
         return (
           <div>
-            <h1>value: {value}</h1>
+            <h1>Count: {count}</h1>
             <button onClick={IncreaseButton}>IncreaseCount</button>
           </div>
         );
