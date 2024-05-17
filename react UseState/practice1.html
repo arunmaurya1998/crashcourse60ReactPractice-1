@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JSX and Babel</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      // Your JSX code here
+      const rootElemnt = document.getElementById("root");
+      const reacrRoot = ReactDOM.createRoot(rootElemnt);
+
+      function App() {
+        const [value, newValue] = React.useState(90);
+
+        function IncreaseButton() {
+          return newValue(value + 8);
+        }
+
+        return (
+          <div>
+            <h1>value: {value}</h1>
+            <button onClick={IncreaseButton}>IncreaseCount</button>
+          </div>
+        );
+      }
+
+      reacrRoot.render(<App />);
+    </script>
+  </body>
+</html>
