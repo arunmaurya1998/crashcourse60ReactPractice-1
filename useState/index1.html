@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JSX and Babel</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      // Your JSX code here
+
+      function App() {
+        const [count, setCount] = React.useState(1);
+        const [num, setNum] = React.useState(1);
+        const [multy, setMulty] = React.useState(1);
+
+        const multyply = () => {
+          const newCount = count + 1 > 10 ? 1 : count + 1;
+          const newMulty = newCount * num;
+
+          if (count + 1 > 10) {
+            setNum(num + 1);
+          }
+
+          setCount(newCount);
+          setMulty(newMulty);
+        };
+
+        return (
+          <>
+            <div>
+              <h1 style={{
+                backgroundColor:"lightgreen",
+                color:"red"
+              }}>TABLE OF : {num}</h1>
+          
+                  <h1>
+                    {num} * {count} = {multy}
+                  </h1>
+              
+
+              <button onClick={multyply}>multyply</button>
+            </div>
+            
+          </>
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root")).render(
+        <App />
+      );
+    </script>
+  </body>
+</html>
